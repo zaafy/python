@@ -1,11 +1,11 @@
 def sanitize(text):
   return text.replace(' ', '').lower()
 
-def objectCreator(text):
+def objectCreator(text, size):
   dict = {}
   data = sanitize(text)
-  for i in range(0, len(data) - 2):
-    ngram = data[i:i+3]
+  for i in range(0, len(data) - size + 1):
+    ngram = data[i:i+size]
     if ngram in dict:
       dict[ngram] += 1
     else:
@@ -14,5 +14,6 @@ def objectCreator(text):
   return dict
 
 text = input("Write down the sequence of words delimited by space\n")
-print(objectCreator(text))
+size = int(input("Write size of n-grams\n"))
+print(objectCreator(text, size))
 
