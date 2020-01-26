@@ -7,11 +7,10 @@ def getdata() :
 
 def listReverse(list) :
   reversedList = []
-  for i in range(len(list), 0, -1) :
+  for i in range(len(list) -1, -1, -1) :
     reversedList.append(list[i])
 
   return reversedList
 
-list = []
 list = getdata()
 print(listReverse(list))
